@@ -1,4 +1,4 @@
-package com.EmailClient.view;
+package com.EmailClient.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

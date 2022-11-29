@@ -7,4 +7,5 @@ module emailClient {
 
     opens com.EmailClient;
     opens com.EmailClient.view;
+    opens com.EmailClient.controller;
 }
