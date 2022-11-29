@@ -1,8 +1,41 @@
 *{
     -fx-background-color: #5e6472;
-    -fx-text-fill: white;
 }
 
 .big{
-   -fx-text-fill: #15568c;
+   -fx-font-size: 16pt;
 }
+
+Button, Label, ChoiceBox, Slider{
+    -fx-text-fill: white;
+}
+
+Button{
+    -fx-background-color: #4f5d75;
+}
+
+Button:hover{
+    -fx-background-color: #748cab;
+}
+
+ChoiceBox >*{
+   -fx-background-color: #4f5d75;
+}
+
+Slider .axis {
+    -fx-tick-label-fill: white;
+}
+
+Slider .track {
+    -fx-background-color: #4f5d75;
+}
+
+Slider .track:hover {
+    -fx-background-color: #748cab;
+}
+
+Slider .thumb {
+    -fx-background-color: #748cab;
+}
+
+
