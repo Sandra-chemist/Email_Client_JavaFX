@@ -8,6 +8,7 @@ import main.EmailManager;
 import main.controller.BaseController;
 import main.controller.LoginWindowController;
 import main.controller.MainWindowController;
+import main.controller.OptionsWindowController;
 
 import java.io.IOException;
 
@@ -29,6 +30,12 @@ public class ViewFactory {
         System.out.println("main window called");
 
         BaseController controller = new MainWindowController(emailManager, this, "MainWindow.fxml");
+        initializeStage(controller);
+    }
+
+    public void showOptionsWindow(){
+        System.out.println("options window called");
+        BaseController controller = new OptionsWindowController(emailManager, this, "OptionsWindow.fxml");
         initializeStage(controller);
     }
 
