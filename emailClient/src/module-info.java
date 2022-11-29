@@ -5,7 +5,7 @@ module emailClient {
     requires javafx.graphics;
     requires javafx.web;
 
-    opens com.EmailClient;
-    opens com.EmailClient.view;
-    opens com.EmailClient.controller;
+    opens main;
+    opens main.view;
+    opens main.controller;
 }

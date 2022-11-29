@@ -1,11 +1,13 @@
-package com.EmailClient.controller;
+package main.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import main.EmailManager;
+import main.view.ViewFactory;
 
-public class LoginWindowController {
+public class LoginWindowController extends BaseController {
     @FXML
     private TextField emailAddressField;
 
@@ -14,6 +16,10 @@ public class LoginWindowController {
 
     @FXML
     private PasswordField passwordField;
+
+    public LoginWindowController(EmailManager emailManager, ViewFactory viewFactory, String fxmlName) {
+        super(emailManager, viewFactory, fxmlName);
+    }
 
     @FXML
     void loginButtonAction() {
