@@ -1,6 +1,7 @@
 package main.controller.services;
 
 import main.EmailManager;
+import main.controller.EmailLoginResult;
 import main.model.EmailAccount;
 
 public class LoginService {
@@ -12,8 +13,8 @@ public class LoginService {
         this.emailAccount = emailAccount;
         this.emailManager = emailManager;
     }
-    
-    public void login(){
+
+    public EmailLoginResult login(){
 
     }
 }
