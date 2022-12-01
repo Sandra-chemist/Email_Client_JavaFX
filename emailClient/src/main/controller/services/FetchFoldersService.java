@@ -48,7 +48,6 @@ public class FetchFoldersService extends Service<Void> {
         }
 
     }
-
     private void fetchMessagesOnFolder(Folder folder, EmailTreeItem<String> emailTreeItem) {
         Service fetchMessagesService = new Service() {
             @Override
@@ -60,7 +59,7 @@ public class FetchFoldersService extends Service<Void> {
                             folder.open(Folder.READ_WRITE);
                             int folderSize = folder.getMessageCount();
                             for (int i = folderSize; i > 0; i--) {
-                                System.out.println(folder.getMessage(i).getSubject());
+                                emailTreeItem.addEmail(folder.getMessage(i));
                             }
                         }
                         return null;
