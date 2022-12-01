@@ -2,14 +2,15 @@ package main;
 
 import javafx.scene.control.TreeItem;
 import main.model.EmailAccount;
+import main.model.EmailTreeItem;
 
 public class EmailManager {
 
     //folders handling;
 
-    private TreeItem<String> foldersRoot = new TreeItem<String>("");
+    private EmailTreeItem<String> foldersRoot = new EmailTreeItem<String>("");
 
-    public TreeItem<String> getFoldersRoot() {
+    public EmailTreeItem<String> getFoldersRoot() {
         return foldersRoot;
     }
 
