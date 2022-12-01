@@ -8,6 +8,7 @@ public class EmailAccount {
     private String address;
     private String password;
     private Properties properties;
+
     private Store store;
 
     public String getAddress() {
@@ -17,6 +18,7 @@ public class EmailAccount {
     public String getPassword() {
         return password;
     }
+
 
     public Properties getProperties() {
         return properties;
