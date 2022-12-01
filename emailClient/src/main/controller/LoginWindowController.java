@@ -1,6 +1,7 @@
 package main.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -10,7 +11,10 @@ import main.controller.services.LoginService;
 import main.model.EmailAccount;
 import main.view.ViewFactory;
 
-public class LoginWindowController extends BaseController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class LoginWindowController extends BaseController implements Initializable {
 
     @FXML
     private Label errorLabel;
@@ -63,4 +67,9 @@ public class LoginWindowController extends BaseController {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        emailAddressField.setText("sandra.skibiszewska@outlook.com");
+        passwordField.setText("Bejula123");
+    }
 }
