@@ -1,6 +1,7 @@
 package main;
 
 import javafx.scene.control.TreeItem;
+import main.controller.services.FetchFoldersService;
 import main.model.EmailAccount;
 import main.model.EmailTreeItem;
 
@@ -15,13 +16,9 @@ public class EmailManager {
     }
 
     public void addEmailAccount(EmailAccount emailAccount){
-        TreeItem<String> treeItem = new TreeItem<String>(emailAccount.getAddress());
-        treeItem.setExpanded(true);
-            treeItem.getChildren().add(new TreeItem<String>("INBOX"));
-            treeItem.getChildren().add(new TreeItem<String>("Sent"));
-            treeItem.getChildren().add(new TreeItem<String>("Folder1"));
-            treeItem.getChildren().add(new TreeItem<String>("Spam"));
-
+        EmailTreeItem<String> treeItem = new EmailTreeItem<String>(emailAccount.getAddress());
+        FetchFoldersService fetchFoldersService = new FetchFoldersService(emailAccount.getStore(), treeItem);
+        fetchFoldersService.start();
         foldersRoot.getChildren().add(treeItem);
     }
 }
