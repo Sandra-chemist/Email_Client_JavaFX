@@ -2,10 +2,12 @@ package main.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TreeView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.web.WebView;
+import javafx.util.Callback;
 import main.EmailManager;
 import main.model.EmailMessage;
 import main.model.EmailTreeItem;
@@ -62,8 +64,28 @@ public class MainWindowController extends BaseController implements Initializabl
         setUpEmailsTreeView();
         setUpEmailsTableView();
         setUpFolderSelection();
+        setUpBoldRows();
     }
 
+    private void setUpBoldRows(){
+        emailsTableView.setRowFactory(new Callback<TableView<EmailMessage>, TableRow<EmailMessage>>() {
+            @Override
+            public TableRow<EmailMessage> call(TableView<EmailMessage> emailMessageTableView) {
+                return new TableRow<EmailMessage>(){
+                    protected void updateItem(EmailMessage item, boolean empty){
+                        super.updateItem(item, empty);
+                        if(item != null){
+                            if(item.isRead()){
+                                setStyle("");
+                            } else{
+                                setStyle("-fx-font-weight: bold");
+                            }
+                        }
+                    }
+                };
+            }
+        });
+    }
     private void setUpFolderSelection(){
         emailsTreeView.setOnMouseClicked(e -> {
             EmailTreeItem<String> item = (EmailTreeItem<String>) emailsTreeView.getSelectionModel().getSelectedItem();
