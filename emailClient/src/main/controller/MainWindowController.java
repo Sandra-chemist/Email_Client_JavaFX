@@ -9,6 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.web.WebView;
 import javafx.util.Callback;
 import main.EmailManager;
+import main.controller.services.MessageRendererService;
 import main.model.EmailMessage;
 import main.model.EmailTreeItem;
 import main.model.SizeInteger;
@@ -21,8 +22,7 @@ import java.util.ResourceBundle;
 public class MainWindowController extends BaseController implements Initializable {
 
     @FXML
-    private WebView emailWebView;
-
+    private TreeView<String> emailsTreeView;
     @FXML
     private TableView<EmailMessage> emailsTableView;
 
@@ -41,9 +41,11 @@ public class MainWindowController extends BaseController implements Initializabl
     @FXML
     private TableColumn<EmailMessage, Date> dateCol;
 
-
     @FXML
-    private TreeView<String> emailsTreeView;
+    private WebView emailWebView;
+
+    private MessageRendererService messageRendererService;
+
 
     public MainWindowController(EmailManager emailManager, ViewFactory viewFactory, String fxmlName) {
         super(emailManager, viewFactory, fxmlName);
@@ -66,19 +68,36 @@ public class MainWindowController extends BaseController implements Initializabl
         setUpEmailsTableView();
         setUpFolderSelection();
         setUpBoldRows();
+        setUpMessageRendererService();
+        setUpMessageSelection();
     }
 
-    private void setUpBoldRows(){
+    private void setUpMessageSelection(){
+        emailsTableView.setOnMouseClicked(event -> {
+            EmailMessage emailMessage = emailsTableView.getSelectionModel().getSelectedItem();
+            if (emailMessage != null) {
+                messageRendererService.setEmailMessage(emailMessage);
+                messageRendererService.restart();
+            }
+        });
+    }
+
+    private void setUpMessageRendererService(){
+        messageRendererService = new MessageRendererService(emailWebView.getEngine());
+    }
+
+    private void setUpBoldRows() {
         emailsTableView.setRowFactory(new Callback<TableView<EmailMessage>, TableRow<EmailMessage>>() {
             @Override
-            public TableRow<EmailMessage> call(TableView<EmailMessage> emailMessageTableView) {
+            public TableRow<EmailMessage> call(TableView<EmailMessage> param) {
                 return new TableRow<EmailMessage>(){
+                    @Override
                     protected void updateItem(EmailMessage item, boolean empty){
                         super.updateItem(item, empty);
-                        if(item != null){
+                        if(item != null) {
                             if(item.isRead()){
                                 setStyle("");
-                            } else{
+                            } else {
                                 setStyle("-fx-font-weight: bold");
                             }
                         }
