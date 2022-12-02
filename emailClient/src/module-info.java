@@ -10,4 +10,5 @@ module emailClient {
     opens main;
     opens main.view;
     opens main.controller;
+    opens main.model;
 }
