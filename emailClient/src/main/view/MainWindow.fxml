@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane prefHeight="505.0" prefWidth="803.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="505.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <MenuBar layoutX="1.0" layoutY="2.0" prefHeight="28.0" prefWidth="839.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <menus>
@@ -39,7 +39,7 @@
             <TableColumn fx:id="subjectCol" prefWidth="124.0" text="Subject" />
             <TableColumn fx:id="recipientCol" prefWidth="127.0" text="Recipient" />
             <TableColumn fx:id="sizeCol" prefWidth="115.0" text="Size" />
-            <TableColumn fx:id="dateCol" prefWidth="157.0" text="Date" />
+            <TableColumn fx:id="dateCol" prefWidth="178.0" text="Date" />
         </columns>
       </TableView>
       <WebView fx:id="emailWebView" layoutX="186.0" layoutY="187.0" prefHeight="318.0" prefWidth="623.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="186.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="187.0" />
