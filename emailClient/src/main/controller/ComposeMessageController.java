@@ -23,8 +23,8 @@ public class ComposeMessageController extends BaseController{
 
     @FXML
     void sendButtonAction() {
+        System.out.println(htmlEditor.getHtmlText());
         System.out.println("send button!");
-
     }
 
     public ComposeMessageController(EmailManager emailManager, ViewFactory viewFactory, String fxmlName) {
