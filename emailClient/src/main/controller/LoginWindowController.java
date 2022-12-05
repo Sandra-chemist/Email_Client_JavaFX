@@ -24,6 +24,9 @@ public class LoginWindowController extends BaseController implements Initializab
     @FXML
     private PasswordField passwordField;
 
+    @FXML
+    private Label tittleLabel;
+
     public LoginWindowController(EmailManager emailManager, ViewFactory viewFactory, String fxmlName) {
         super(emailManager, viewFactory, fxmlName);
     }
