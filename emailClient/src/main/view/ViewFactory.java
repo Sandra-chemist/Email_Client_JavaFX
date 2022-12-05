@@ -47,27 +47,21 @@ public class ViewFactory {
     }
 
     public void showLoginWindow() {
-        System.out.println("show login window called");
-
         BaseController controller = new LoginWindowController(emailManager, this, "LoginWindow.fxml");
         initializeStage(controller);
     }
     public void showMainWindow() {
-        System.out.println("main window called");
-
         BaseController controller = new MainWindowController(emailManager, this, "MainWindow.fxml");
         initializeStage(controller);
         mainViewInitialized = true;
     }
 
     public void showOptionsWindow(){
-        System.out.println("options window called");
         BaseController controller = new OptionsWindowController(emailManager, this, "OptionsWindow.fxml");
         initializeStage(controller);
     }
 
     public void showComposeMessageWindow(){
-        System.out.println("compose message window called");
         BaseController controller = new ComposeMessageController(emailManager, this, "ComposeMessageWindow.fxml");
         initializeStage(controller);
     }
@@ -83,6 +77,7 @@ public class ViewFactory {
             return;
         }
         Scene scene = new Scene(parent);
+        updateStyle(scene);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
@@ -94,15 +89,20 @@ public class ViewFactory {
         activeStages.remove(stageToClose);
     }
 
-    public void updateStyles() {
+    public void updateAllStyles() {
         for (Stage stage: activeStages){
             Scene scene = stage.getScene();
-            scene.getStylesheets().clear();
-            scene.getStylesheets().add(getClass().getResource(ColorTheme.getCssPath(colorTheme)).toExternalForm());
-            scene.getStylesheets().add(getClass().getResource(FontSize.getCssPath(fontSize)).toExternalForm());
+            updateStyle(scene);
 
         }
     }
+
+    private void updateStyle(Scene scene){
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add(getClass().getResource(ColorTheme.getCssPath(colorTheme)).toExternalForm());
+        scene.getStylesheets().add(getClass().getResource(FontSize.getCssPath(fontSize)).toExternalForm());
+    }
+
 }
 
 
