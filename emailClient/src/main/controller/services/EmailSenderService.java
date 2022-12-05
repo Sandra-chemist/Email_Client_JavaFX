@@ -5,9 +5,13 @@ import javafx.concurrent.Task;
 import main.controller.EmailSendingResult;
 import main.model.EmailAccount;
 
+import javax.mail.BodyPart;
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
 public class EmailSenderService extends Service<EmailSendingResult> {
 
@@ -34,6 +38,13 @@ public class EmailSenderService extends Service<EmailSendingResult> {
                     mimeMessage.setFrom(emailAccount.getAddress());
                     mimeMessage.addRecipients(Message.RecipientType.TO, recipient);
                     mimeMessage.setSubject(subject);
+
+                    // set the content:
+                    Multipart multipart = new MimeMultipart();
+                    BodyPart messageBodyPart = new MimeBodyPart();
+                    messageBodyPart.setContent(content, "text/html");
+                    multipart.addBodyPart(messageBodyPart);
+                    mimeMessage.setContent(multipart);
 
 
                 } catch (MessagingException e) {
