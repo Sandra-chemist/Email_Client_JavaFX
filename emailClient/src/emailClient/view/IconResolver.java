@@ -1,4 +1,4 @@
-package main.view;
+package emailClient.view;
 
 import javafx.scene.Node;
 import javafx.scene.image.Image;

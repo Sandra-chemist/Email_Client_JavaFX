@@ -1,14 +1,13 @@
-package main;
+package emailClient;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.TreeItem;
-import main.controller.services.FetchFoldersService;
-import main.controller.services.FolderUpdaterService;
-import main.model.EmailAccount;
-import main.model.EmailMessage;
-import main.model.EmailTreeItem;
-import main.view.IconResolver;
+import emailClient.controller.services.FetchFoldersService;
+import emailClient.controller.services.FolderUpdaterService;
+import emailClient.model.EmailAccount;
+import emailClient.model.EmailMessage;
+import emailClient.model.EmailTreeItem;
+import emailClient.view.IconResolver;
 
 import javax.mail.Flags;
 import javax.mail.Folder;

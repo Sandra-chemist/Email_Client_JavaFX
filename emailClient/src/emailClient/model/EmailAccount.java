@@ -1,4 +1,4 @@
-package main.model;
+package emailClient.model;
 
 import javax.mail.Session;
 import javax.mail.Store;

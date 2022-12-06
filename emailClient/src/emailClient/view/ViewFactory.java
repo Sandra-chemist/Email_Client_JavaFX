@@ -1,11 +1,11 @@
-package main.view;
+package emailClient.view;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import main.EmailManager;
-import main.controller.*;
+import emailClient.EmailManager;
+import emailClient.controller.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -58,6 +58,11 @@ public class ViewFactory {
 
     public void showOptionsWindow(){
         BaseController controller = new OptionsWindowController(emailManager, this, "OptionsWindow.fxml");
+        initializeStage(controller);
+    }
+
+    public void showEmailDetailsWindow(){
+        BaseController controller = new EmailDetailsController(emailManager, this, "EmailDetailsWindow.fxml");
         initializeStage(controller);
     }
 

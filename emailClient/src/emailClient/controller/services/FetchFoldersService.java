@@ -1,9 +1,9 @@
-package main.controller.services;
+package emailClient.controller.services;
 
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
-import main.model.EmailTreeItem;
-import main.view.IconResolver;
+import emailClient.model.EmailTreeItem;
+import emailClient.view.IconResolver;
 
 import javax.mail.Folder;
 import javax.mail.Message;

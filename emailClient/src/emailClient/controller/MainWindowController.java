@@ -1,4 +1,4 @@
-package main.controller;
+package emailClient.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -6,12 +6,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.web.WebView;
 import javafx.util.Callback;
-import main.EmailManager;
-import main.controller.services.MessageRendererService;
-import main.model.EmailMessage;
-import main.model.EmailTreeItem;
-import main.model.SizeInteger;
-import main.view.ViewFactory;
+import emailClient.EmailManager;
+import emailClient.controller.services.MessageRendererService;
+import emailClient.model.EmailMessage;
+import emailClient.model.EmailTreeItem;
+import emailClient.model.SizeInteger;
+import emailClient.view.ViewFactory;
 import java.util.Date;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,6 +20,7 @@ public class MainWindowController extends BaseController implements Initializabl
 
     private MenuItem markUnreadMenuItem = new MenuItem("mark is unread");
     private MenuItem deleteMesssageMenuItem = new MenuItem("delete message");
+    private MenuItem showMessageDetailsMenuItem = new MenuItem("view details");
 
     @FXML
     private TreeView<String> emailsTreeView;
@@ -75,16 +76,19 @@ public class MainWindowController extends BaseController implements Initializabl
         setUpBoldRows();
         setUpMessageRendererService();
         setUpMessageSelection();
-        setUpContexMenus();
+        setUpContextMenus();
     }
 
-    private void setUpContexMenus(){
+    private void setUpContextMenus(){
         markUnreadMenuItem.setOnAction(event -> {
             emailManager.setUnRead();
         });
         deleteMesssageMenuItem.setOnAction(event -> {
             emailManager.deleteSelectedMessage();
             emailWebView.getEngine().loadContent("");
+        });
+        showMessageDetailsMenuItem.setOnAction(event -> {
+            viewFactory.showEmailDetailsWindow();;
         });
     }
 
@@ -142,7 +146,7 @@ public class MainWindowController extends BaseController implements Initializabl
         sizeCol.setCellValueFactory((new PropertyValueFactory<EmailMessage, SizeInteger>("size")));
         dateCol.setCellValueFactory((new PropertyValueFactory<EmailMessage, Date>("date")));
 
-        emailsTableView.setContextMenu(new ContextMenu(markUnreadMenuItem, deleteMesssageMenuItem));
+        emailsTableView.setContextMenu(new ContextMenu(markUnreadMenuItem, deleteMesssageMenuItem, showMessageDetailsMenuItem));
     }
 
     private void setUpEmailsTreeView(){

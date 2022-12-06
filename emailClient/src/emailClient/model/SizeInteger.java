@@ -1,4 +1,4 @@
-package main.model;
+package emailClient.model;
 
 public class SizeInteger implements Comparable<SizeInteger>{
 

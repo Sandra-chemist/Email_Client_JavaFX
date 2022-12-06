@@ -1,4 +1,4 @@
-package main.controller;
+package emailClient.controller;
 
 public enum EmailSendingResult {
     SUCCESS,

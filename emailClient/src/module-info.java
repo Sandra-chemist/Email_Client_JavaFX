@@ -6,9 +6,10 @@ module emailClient {
     requires javafx.web;
     requires activation;
     requires java.mail;
+    requires java.desktop;
 
-    opens main;
-    opens main.view;
-    opens main.controller;
-    opens main.model;
+    opens emailClient;
+    opens emailClient.view;
+    opens emailClient.controller;
+    opens emailClient.model;
 }

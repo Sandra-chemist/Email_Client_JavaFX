@@ -1,4 +1,4 @@
-package main.controller;
+package emailClient.controller;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -7,10 +7,10 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Slider;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
-import main.EmailManager;
-import main.view.ColorTheme;
-import main.view.FontSize;
-import main.view.ViewFactory;
+import emailClient.EmailManager;
+import emailClient.view.ColorTheme;
+import emailClient.view.FontSize;
+import emailClient.view.ViewFactory;
 
 import java.net.URL;
 import java.util.ResourceBundle;
