@@ -37,18 +37,17 @@ public class EmailSenderService extends Service<EmailSendingResult> {
             @Override
                 protected EmailSendingResult call(){
                     try {
-                        //Create the message:
                         MimeMessage mimeMessage = new MimeMessage(emailAccount.getSession());
                         mimeMessage.setFrom(emailAccount.getAddress());
                         mimeMessage.addRecipients(Message.RecipientType.TO, recipient);
                         mimeMessage.setSubject(subject);
-                        //Set the content:
+
                         Multipart multipart = new MimeMultipart();
                         BodyPart messageBodyPart = new MimeBodyPart();
                         messageBodyPart.setContent(content, "text/html");
                         multipart.addBodyPart(messageBodyPart);
                         mimeMessage.setContent(multipart);
-                        //Adding attachments:
+
                         if (attachments.size() > 0 ) {
                             for (File file: attachments) {
                                 MimeBodyPart mimeBodyPart = new MimeBodyPart();
@@ -58,7 +57,7 @@ public class EmailSenderService extends Service<EmailSendingResult> {
                                 multipart.addBodyPart(mimeBodyPart);
                             }
                         }
-                        //Sending the message:
+
                         Transport transport = emailAccount.getSession().getTransport();
                         transport.connect(
                                 emailAccount.getProperties().getProperty("outgoingHost"),

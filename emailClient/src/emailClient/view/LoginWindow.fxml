@@ -15,9 +15,9 @@
       <TextField fx:id="emailAddressField" layoutX="129.0" layoutY="125.0" prefHeight="25.0" prefWidth="260.0" />
       <PasswordField fx:id="passwordField" layoutX="129.0" layoutY="168.0" prefHeight="25.0" prefWidth="260.0" />
       <Label fx:id="errorLabel" layoutX="167.0" layoutY="283.0" prefHeight="17.0" prefWidth="101.0" />
-      <Label fx:id="tittleLabel" layoutX="84.0" layoutY="54.0" prefHeight="26.0" prefWidth="268.0" text="Welcome to the best email client!" textAlignment="JUSTIFY">
+      <Label fx:id="tittleLabel" layoutX="118.0" layoutY="54.0" prefHeight="26.0" prefWidth="268.0" text="Welcome to email client!" textAlignment="JUSTIFY">
          <font>
-            <Font size="17.0" />
+            <Font size="19.0" />
          </font>
       </Label>
    </children>

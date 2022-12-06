@@ -28,7 +28,6 @@ public class EmailAccount {
         return password;
     }
 
-
     public Properties getProperties() {
         return properties;
     }

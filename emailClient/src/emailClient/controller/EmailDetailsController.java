@@ -24,22 +24,16 @@ import java.util.ResourceBundle;
 public class EmailDetailsController extends BaseController implements Initializable {
 
     private String LOCATION_OF_DOWNLOADS = System.getProperty("user.user") + "/Downloads/";
-
     @FXML
     private HBox hBoxDownloads;
-
     @FXML
     private Label senderLabel;
-
     @FXML
     private Label subjectLabel;
-
     @FXML
     private WebView webView;
-
     @FXML
     private Label attachmentLabel;
-
     public EmailDetailsController(EmailManager emailManager, ViewFactory viewFactory, String fxmlName) {
         super(emailManager, viewFactory, fxmlName);
     }
@@ -81,7 +75,6 @@ public class EmailDetailsController extends BaseController implements Initializa
 
             this.setOnAction(e -> downloadAttachment());
         }
-
         private void downloadAttachment(){
             colorBlue();
             Service service = new Service() {

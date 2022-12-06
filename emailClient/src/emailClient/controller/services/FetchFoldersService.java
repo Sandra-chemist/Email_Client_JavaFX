@@ -17,7 +17,6 @@ public class FetchFoldersService extends Service<Void> {
 
     private Store store;
     private EmailTreeItem<String> foldersRoot;
-
     private List<Folder> folderList;
     private IconResolver iconResolver = new IconResolver();
 

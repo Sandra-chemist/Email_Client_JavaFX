@@ -24,19 +24,14 @@ public class ComposeMessageController extends BaseController implements Initiali
     private List<File> attachments = new ArrayList<File>();
     @FXML
     private TextField recipientTextField;
-
     @FXML
     private TextField subjectTextField;
-
     @FXML
     private HTMLEditor htmlEditor;
-
     @FXML
     private Label errorLabel;
-
     @FXML
     private ChoiceBox<EmailAccount> emailAccountChoice;
-
     @FXML
     void attachButtonAction() {
         FileChooser fileChooser = new FileChooser();

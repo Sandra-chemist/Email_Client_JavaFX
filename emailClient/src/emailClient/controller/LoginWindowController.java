@@ -20,10 +20,8 @@ public class LoginWindowController extends BaseController implements Initializab
     private Label errorLabel;
     @FXML
     private TextField emailAddressField;
-
     @FXML
     private PasswordField passwordField;
-
     @FXML
     private Label tittleLabel;
 
@@ -82,7 +80,7 @@ public class LoginWindowController extends BaseController implements Initializab
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        emailAddressField.setText("sandra.skibiszewska@outlook.com");
-        passwordField.setText("Bejula123");
+        emailAddressField.setText("@outlook.com");
+        passwordField.setText("");
     }
 }

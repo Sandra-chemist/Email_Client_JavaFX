@@ -42,7 +42,7 @@ public class EmailManager {
     }
 
     private FolderUpdaterService folderUpdaterService;
-    //folders handling;
+
     private EmailTreeItem<String> foldersRoot = new EmailTreeItem<String>("");
 
     public EmailTreeItem<String> getFoldersRoot() {

@@ -26,27 +26,19 @@ public class MainWindowController extends BaseController implements Initializabl
     private TreeView<String> emailsTreeView;
     @FXML
     private TableView<EmailMessage> emailsTableView;
-
     @FXML
     private TableColumn<EmailMessage, String> senderCol;
-
     @FXML
     private TableColumn<EmailMessage, String> subjectCol;
-
     @FXML
     private TableColumn<EmailMessage, SizeInteger> sizeCol;
-
     @FXML
     private TableColumn<EmailMessage, String> recipientCol;
-
     @FXML
     private TableColumn<EmailMessage, Date> dateCol;
-
     @FXML
     private WebView emailWebView;
-
     private MessageRendererService messageRendererService;
-
 
     public MainWindowController(EmailManager emailManager, ViewFactory viewFactory, String fxmlName) {
         super(emailManager, viewFactory, fxmlName);
@@ -130,6 +122,7 @@ public class MainWindowController extends BaseController implements Initializabl
             }
         });
     }
+
     private void setUpFolderSelection(){
         emailsTreeView.setOnMouseClicked(e -> {
             EmailTreeItem<String> item = (EmailTreeItem<String>) emailsTreeView.getSelectionModel().getSelectedItem();
@@ -139,6 +132,7 @@ public class MainWindowController extends BaseController implements Initializabl
             }
         });
     }
+
     private void setUpEmailsTableView(){
         senderCol.setCellValueFactory((new PropertyValueFactory<EmailMessage, String>("sender")));
         subjectCol.setCellValueFactory((new PropertyValueFactory<EmailMessage, String>("subject")));

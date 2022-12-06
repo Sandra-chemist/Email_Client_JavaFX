@@ -9,7 +9,6 @@ import emailClient.model.EmailAccount;
 import javax.mail.*;
 
 public class LoginService extends Service<EmailLoginResult> {
-
     EmailAccount emailAccount;
     EmailManager emailManager;
 

@@ -20,10 +20,8 @@ public class OptionsWindowController extends BaseController implements Initializ
     public OptionsWindowController(EmailManager emailManager, ViewFactory viewFactory, String fxmlName) {
         super(emailManager, viewFactory, fxmlName);
     }
-
     @FXML
     private Slider fontSizePicker;
-
     @FXML
     private ChoiceBox<ColorTheme> themePicker;
 

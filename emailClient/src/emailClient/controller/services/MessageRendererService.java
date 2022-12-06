@@ -60,6 +60,7 @@ public class MessageRendererService extends Service {
             loadMultipart(multipart, stringBuffer);
         }
     }
+
     private void loadMultipart(Multipart multipart, StringBuffer stringBuffer) throws MessagingException, IOException {
         for (int i = multipart.getCount() - 1; i>=0; i--){
             BodyPart bodyPart = multipart.getBodyPart(i);

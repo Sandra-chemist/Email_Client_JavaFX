@@ -13,7 +13,6 @@ public class EmailTreeItem<String> extends TreeItem<String> {
 
     private String name;
     private ObservableList<EmailMessage> emailMessages;
-
     private int unreadMessagesCount;
 
     public EmailTreeItem(String name) {
@@ -36,6 +35,7 @@ public class EmailTreeItem<String> extends TreeItem<String> {
         emailMessages.add(0, emailMessage);
 
     }
+
     private EmailMessage fetchMessage(Message message) throws MessagingException {
         boolean messageIsRead = message.getFlags().contains(Flags.Flag.SEEN);
         EmailMessage emailMessage = new EmailMessage(
@@ -62,6 +62,7 @@ public class EmailTreeItem<String> extends TreeItem<String> {
         unreadMessagesCount--;
         updateName();
     }
+
     private void updateName(){
         if (unreadMessagesCount > 0){
             this.setValue((String) (name + "(" + unreadMessagesCount + ")"));
