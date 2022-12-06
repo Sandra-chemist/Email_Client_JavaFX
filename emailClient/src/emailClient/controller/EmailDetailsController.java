@@ -4,6 +4,7 @@ import emailClient.EmailManager;
 import emailClient.controller.services.MessageRendererService;
 import emailClient.model.EmailMessage;
 import emailClient.view.ViewFactory;
+import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,7 +15,6 @@ import javafx.scene.web.WebView;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.Service;
 import javax.mail.internet.MimeBodyPart;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -81,7 +81,29 @@ public class EmailDetailsController extends BaseController implements Initializa
         }
 
         private void downloadAttachment(){
-
+            colorBlue();
+            Service service = new Service() {
+                @Override
+                protected Task createTask() {
+                    return new Task() {
+                        @Override
+                        protected Object call() throws Exception {
+                            mimeBodyPart.saveFile(downloadedFilePath);
+                            return null;
+                        }
+                    };
+                }
+            };
+            service.restart();
+            service.setOnSucceeded(e -> {
+                colorGreen();
+            });
+        }
+        private void colorBlue(){
+            this.setStyle("-fx-background-color: Blue");
+        }
+        private void colorGreen(){
+            this.setStyle("-fx-background-color: Green");
         }
     }
 
