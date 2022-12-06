@@ -1,4 +1,4 @@
-package main.controller;
+package emailClient.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -6,12 +6,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.web.WebView;
 import javafx.util.Callback;
-import main.EmailManager;
-import main.controller.services.MessageRendererService;
-import main.model.EmailMessage;
-import main.model.EmailTreeItem;
-import main.model.SizeInteger;
-import main.view.ViewFactory;
+import emailClient.EmailManager;
+import emailClient.controller.services.MessageRendererService;
+import emailClient.model.EmailMessage;
+import emailClient.model.EmailTreeItem;
+import emailClient.model.SizeInteger;
+import emailClient.view.ViewFactory;
 import java.util.Date;
 import java.net.URL;
 import java.util.ResourceBundle;

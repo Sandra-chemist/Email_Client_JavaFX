@@ -1,7 +1,7 @@
-package main.controller;
+package emailClient.controller;
 
-import main.EmailManager;
-import main.view.ViewFactory;
+import emailClient.EmailManager;
+import emailClient.view.ViewFactory;
 
 public abstract class BaseController {
 

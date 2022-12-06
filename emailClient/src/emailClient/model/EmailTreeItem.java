@@ -1,4 +1,4 @@
-package main.model;
+package emailClient.model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

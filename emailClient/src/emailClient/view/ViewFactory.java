@@ -1,11 +1,11 @@
-package main.view;
+package emailClient.view;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import main.EmailManager;
-import main.controller.*;
+import emailClient.EmailManager;
+import emailClient.controller.*;
 
 import java.io.IOException;
 import java.util.ArrayList;

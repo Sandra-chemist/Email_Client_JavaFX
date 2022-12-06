@@ -1,10 +1,10 @@
-package main.controller.services;
+package emailClient.controller.services;
 
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
-import main.EmailManager;
-import main.controller.EmailLoginResult;
-import main.model.EmailAccount;
+import emailClient.EmailManager;
+import emailClient.controller.EmailLoginResult;
+import emailClient.model.EmailAccount;
 
 import javax.mail.*;
 

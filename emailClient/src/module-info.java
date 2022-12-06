@@ -7,8 +7,8 @@ module emailClient {
     requires activation;
     requires java.mail;
 
-    opens main;
-    opens main.view;
-    opens main.controller;
-    opens main.model;
+    opens emailClient;
+    opens emailClient.view;
+    opens emailClient.controller;
+    opens emailClient.model;
 }

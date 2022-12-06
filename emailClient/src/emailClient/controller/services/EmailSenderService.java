@@ -1,9 +1,9 @@
-package main.controller.services;
+package emailClient.controller.services;
 
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
-import main.controller.EmailSendingResult;
-import main.model.EmailAccount;
+import emailClient.controller.EmailSendingResult;
+import emailClient.model.EmailAccount;
 
 import javax.mail.*;
 import javax.mail.internet.MimeBodyPart;

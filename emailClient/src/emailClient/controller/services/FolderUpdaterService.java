@@ -1,4 +1,4 @@
-package main.controller.services;
+package emailClient.controller.services;
 
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;

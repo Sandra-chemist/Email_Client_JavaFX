@@ -1,4 +1,4 @@
-package main.controller;
+package emailClient.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -7,10 +7,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.web.HTMLEditor;
 import javafx.stage.Stage;
-import main.EmailManager;
-import main.controller.services.EmailSenderService;
-import main.model.EmailAccount;
-import main.view.ViewFactory;
+import emailClient.EmailManager;
+import emailClient.controller.services.EmailSenderService;
+import emailClient.model.EmailAccount;
+import emailClient.view.ViewFactory;
 
 import java.net.URL;
 import java.util.ResourceBundle;

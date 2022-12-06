@@ -1,4 +1,4 @@
-package main.view;
+package emailClient.view;
 
 public enum FontSize {
     SMALL,
