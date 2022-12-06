@@ -4,6 +4,7 @@ import emailClient.EmailManager;
 import emailClient.controller.services.MessageRendererService;
 import emailClient.model.EmailMessage;
 import emailClient.view.ViewFactory;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -13,6 +14,7 @@ import javafx.scene.web.WebView;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.Service;
 import javax.mail.internet.MimeBodyPart;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -56,9 +58,9 @@ public class EmailDetailsController extends BaseController implements Initializa
         if (emailMessage.hasAttachments()){
             for (MimeBodyPart mimeBodyPart: emailMessage.getAttachmentList()){
                 try {
-                    Button button = new Button(mimeBodyPart.getFileName());
+                    Button button = new AttachmentButton(mimeBodyPart);
                     hBoxDownloads.getChildren().add(button);
-                } catch (MessagingException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -66,4 +68,21 @@ public class EmailDetailsController extends BaseController implements Initializa
             attachmentLabel.setText("");
         }
     }
+
+    private class AttachmentButton extends Button {
+        private MimeBodyPart mimeBodyPart;
+        private String downloadedFilePath;
+        public AttachmentButton(MimeBodyPart mimeBodyPart) throws MessagingException {
+            this.mimeBodyPart = mimeBodyPart;
+            this.setText(mimeBodyPart.getFileName());
+            this.downloadedFilePath = LOCATION_OF_DOWNLOADS + mimeBodyPart.getFileName();
+
+            this.setOnAction(e -> downloadAttachment());
+        }
+
+        private void downloadAttachment(){
+
+        }
+    }
+
 }
